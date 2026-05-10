@@ -56,3 +56,21 @@ def add_student():
 
     save_students() 
     print(f"Student '{name}' added successfully!")
+
+    
+def view_students():
+    print("\n-- All Students --")
+
+    if not student_ids:
+        print("No students found.")
+        return
+
+    print(f"{'ID':<10} {'Name':<20} {'Grade'}")
+    print("-" * 35)
+
+    for i in range(len(student_ids)):
+        print(
+            f"{student_ids[i]:<10} "
+            f"{student_names[i]:<20} "
+            f"{student_grades[i]}"
+        )
