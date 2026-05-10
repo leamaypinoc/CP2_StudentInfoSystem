@@ -74,3 +74,33 @@ def view_students():
             f"{student_names[i]:<20} "
             f"{student_grades[i]}"
         )
+
+def search_student():
+    print("\n-- Search Student --")
+    sid = input("Enter Student ID: ").strip()
+
+    if sid in student_ids:
+        i = student_ids.index(sid)
+        print(f"ID: {student_ids[i]}")
+        print(f"Name: {student_names[i]}")
+        print(f"Grade: {student_grades[i]}")
+    else:
+        print("Student not found.")
+
+
+def delete_student():
+    print("\n-- Delete Student --")
+    sid = input("Enter Student ID to delete: ").strip()
+
+    if sid in student_ids:
+        i = student_ids.index(sid)
+
+        print(f"Deleted: {student_names[i]}")
+
+        student_ids.pop(i)
+        student_names.pop(i)
+        student_grades.pop(i)
+
+        save_students()  
+    else:
+        print("Student not found.")
