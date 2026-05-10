@@ -105,6 +105,7 @@ def delete_student():
     else:
         print("Student not found.")
 
+
 def show_menu():
     print("\n================================")
     print("   STUDENT INFORMATION SYSTEM")
@@ -113,6 +114,6 @@ def show_menu():
     print("2. View All Students")
     print("3. Search Student")
     print("4. Delete Student")
+    print("5. Update Student")
     print("0. Exit")
     print("================================")
-
