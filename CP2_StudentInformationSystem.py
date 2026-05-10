@@ -29,3 +29,30 @@ def save_students():
                 f"{student_names[i]}|"
                 f"{student_grades[i]}\n"
             )
+
+def add_student():
+    print("\n-- Add Student --")
+    sid = input("Enter Student ID: ").strip()
+
+    if sid in student_ids:
+        print("ID already exists!")
+        return
+
+    name = input("Enter Name: ").strip()
+
+    while True:
+        try:
+            grade = float(input("Enter Grade (1-100): "))
+            if 0 <= grade <= 100:
+                break
+            else:
+                print("Grade must be between 0 and 100.")
+        except ValueError:
+            print("Please enter a valid number.")
+
+    student_ids.append(sid)
+    student_names.append(name)
+    student_grades.append(grade)
+
+    save_students() 
+    print(f"Student '{name}' added successfully!")
