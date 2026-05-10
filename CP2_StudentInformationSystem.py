@@ -106,7 +106,42 @@ def delete_student():
         print("Student not found.")
 
 
-def show_menu():
+def update_student():
+    print("\n-- Update Student --")
+    sid = input("Enter Student ID to update: ").strip()
+
+    if sid in student_ids:
+        i = student_ids.index(sid)
+
+        print(f"Current Name : {student_names[i]}")
+        print(f"Current Grade: {student_grades[i]}")
+
+        
+        new_name = input("Enter New Name: ").strip()
+
+       
+        while True:
+            try:
+                new_grade = float(input("Enter New Grade (1-100): "))
+                if 0 <= new_grade <= 100:
+                    break
+                else:
+                    print("Grade must be between 0 and 100.")
+            except ValueError:
+                print("Please enter a valid number.")
+
+        
+        student_names[i] = new_name
+        student_grades[i] = new_grade
+
+        
+        save_students()
+
+        print("Student updated successfully!")
+    else:
+        print("Student not found.")
+
+ def show_menu():
     print("\n================================")
     print("   STUDENT INFORMATION SYSTEM")
     print("================================")
