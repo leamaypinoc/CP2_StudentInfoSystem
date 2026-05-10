@@ -17,4 +17,15 @@ def load_students():
                 if len(data) == 3:
                     student_ids.append(data[0])
                     student_names.append(data[1])
-                    student_grades.append(float(data[2]))s
+                    student_grades.append(float(data[2]))
+                    
+
+def save_students():
+    """Save all student records to the file."""
+    with open(FILE_NAME, "w") as file:
+        for i in range(len(student_ids)):
+            file.write(
+                f"{student_ids[i]}|"
+                f"{student_names[i]}|"
+                f"{student_grades[i]}\n"
+            )
