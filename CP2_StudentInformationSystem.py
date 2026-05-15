@@ -2,7 +2,6 @@ import os
 
 FILE_NAME = "students.txt"
 
-
 student_ids = []
 student_names = []
 student_grades = []
@@ -18,7 +17,7 @@ def load_students():
                     student_ids.append(data[0])
                     student_names.append(data[1])
                     student_grades.append(float(data[2]))
-                    
+
 
 def save_students():
     """Save all student records to the file."""
@@ -29,6 +28,7 @@ def save_students():
                 f"{student_names[i]}|"
                 f"{student_grades[i]}\n"
             )
+
 
 def add_student():
     print("\n-- Add Student --")
@@ -54,10 +54,10 @@ def add_student():
     student_names.append(name)
     student_grades.append(grade)
 
-    save_students() 
+    save_students()
     print(f"Student '{name}' added successfully!")
 
-    
+
 def view_students():
     print("\n-- All Students --")
 
@@ -74,6 +74,7 @@ def view_students():
             f"{student_names[i]:<20} "
             f"{student_grades[i]}"
         )
+
 
 def search_student():
     print("\n-- Search Student --")
@@ -101,7 +102,7 @@ def delete_student():
         student_names.pop(i)
         student_grades.pop(i)
 
-        save_students()  
+        save_students()
     else:
         print("Student not found.")
 
@@ -116,10 +117,8 @@ def update_student():
         print(f"Current Name : {student_names[i]}")
         print(f"Current Grade: {student_grades[i]}")
 
-        
         new_name = input("Enter New Name: ").strip()
 
-       
         while True:
             try:
                 new_grade = float(input("Enter New Grade (1-100): "))
@@ -130,18 +129,18 @@ def update_student():
             except ValueError:
                 print("Please enter a valid number.")
 
-        
+        # Update data
         student_names[i] = new_name
         student_grades[i] = new_grade
 
-        
         save_students()
 
         print("Student updated successfully!")
     else:
         print("Student not found.")
 
- def show_menu():
+
+def show_menu():
     print("\n================================")
     print("   STUDENT INFORMATION SYSTEM")
     print("================================")
@@ -152,6 +151,9 @@ def update_student():
     print("5. Update Student")
     print("0. Exit")
     print("================================")
+
+
+load_students()
 
 
 while True:
@@ -172,4 +174,4 @@ while True:
         print("Goodbye!")
         break
     else:
-        print("Invalid option. Please choose 0-5.") 
+        print("Invalid option. Please choose 0-5.")
